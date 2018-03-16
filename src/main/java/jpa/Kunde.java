@@ -46,8 +46,8 @@ public class Kunde implements Serializable{
     private String contry;
 
      //<editor-fold defaultstate="collapsed" desc="Konstruktor">
-     public Kunde(long id, String firstName, String lastName, String road, int roadNumber, int plz, String place, String contry) {
-         this.id = id;
+     public Kunde( String firstName, String lastName, String road, int roadNumber, int plz, String place, String contry) {
+       
          this.firstName = firstName;
          this.lastName = lastName;
          this.road = road;

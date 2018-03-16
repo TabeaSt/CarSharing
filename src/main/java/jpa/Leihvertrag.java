@@ -36,9 +36,9 @@ public class Leihvertrag {
     
     }
     
-    public Leihvertrag(long id, long kundenId, long fahrzeugId, Date startdate, Date enddate) {
+    public Leihvertrag( long kundenId, long fahrzeugId, Date startdate, Date enddate) {
         
-        this.id = id;
+       
         this.kundenId = kundenId;
         this.fahrzeugId = fahrzeugId;
         this.startdate = startdate;

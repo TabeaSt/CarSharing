@@ -6,7 +6,10 @@
 package web;
 
 import ejb.FahrzeugBean;
+import ejb.FahrzeugvergebenException;
+import ejb.FahrzeugzeitraumException;
 import ejb.LeihvertragBean;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.*;
 import javax.jws.WebService;
@@ -49,7 +52,12 @@ public class CarSharingWebServer {
     
     
     //Fahrzeug ausleihen
-    
+    //TODO
+     @WebMethod
+    @WebResult(name = "leihvertrag")
+    public Leihvertrag ausleihen(@WebParam(name = "startDate") Date  startDate,@WebParam(name = "endDate") Date  endDate,@WebParam(name = "fahrzeugid") long  fahrzeugid  ) throws FahrzeugvergebenException, FahrzeugzeitraumException {
+        return leihvertragbean.ausleihen(startDate, endDate, fahrzeugid);
+    }
     
     
     //Neuer Kundensatz
@@ -58,12 +66,8 @@ public class CarSharingWebServer {
     public Kunde createNewKunde(@WebParam(name = "kunde") Kunde Kunde) {
         return kundenbean.saveNew(kunde);
     }
-    //Auflisten aller Leihverträge
-      @WebMethod
-    @WebResult(name = "liehvertrag")
-    public List<Leihvertrag> findAllLeihverträge() {
-        return leihvertragbean.findAll();
-    }
+    //Auflisten aller Leihverträge eines kunden
+ 
     
     
 }

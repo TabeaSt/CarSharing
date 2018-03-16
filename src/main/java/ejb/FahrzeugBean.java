@@ -12,10 +12,6 @@ public class FahrzeugBean extends EntityBean<Fahrzeug, Long> {
         super(Fahrzeug.class);
     }
     
-    public Fahrzeug ausleigen (Fahrzeug f){
     
-        
-    return f;
-    }
-
+    
 }
