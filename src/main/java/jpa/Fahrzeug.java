@@ -28,8 +28,8 @@ public class Fahrzeug implements Serializable {
 //<editor-fold defaultstate="collapsed" desc="Konstruktor">
     public Fahrzeug(){}
     
-    public Fahrzeug(long id,String hersteller, String modell, int baujahr) {
-        this.id = id;
+    public Fahrzeug(String hersteller, String modell, int baujahr) {
+     
         this.hersteller=hersteller;
         this.modell=modell;
         this.baujahr = baujahr;
