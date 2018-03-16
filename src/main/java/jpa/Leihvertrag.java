@@ -5,10 +5,7 @@
  */
 package jpa;
 
-/**
- *
- * @author ta_st
- */
+
 public class Leihvertrag {
     
 }
