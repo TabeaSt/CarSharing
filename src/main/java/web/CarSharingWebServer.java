@@ -6,6 +6,7 @@
 package web;
 
 import ejb.FahrzeugBean;
+import ejb.LeihvertragBean;
 import java.util.List;
 import javax.ejb.*;
 import javax.jws.WebService;
@@ -13,6 +14,8 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import jpa.Fahrzeug;
+import jpa.Kunde;
+import jpa.Leihvertrag;
 
 
 @WebService(serviceName = "CarSharingWebServer")
@@ -20,7 +23,16 @@ public class CarSharingWebServer {
 
     @EJB
     FahrzeugBean fahrzeugbean;
+    
+    
+   @EJB 
+   KundenBean kundenbean;
 
+   
+   @EJB
+   LeihvertragBean leihvertragbean;
+    
+    
     //neues Fahrzeug anlegen
     @WebMethod
     @WebResult(name = "fahrzeug")
@@ -36,7 +48,22 @@ public class CarSharingWebServer {
     }
     
     
-    //Fahrzeug ausleigen
+    //Fahrzeug ausleihen
+    
+    
+    
+    //Neuer Kundensatz
+      @WebMethod
+    @WebResult(name = "kunde")
+    public Kunde createNewKunde(@WebParam(name = "kunde") Kunde Kunde) {
+        return kundenbean.saveNew(kunde);
+    }
+    //Auflisten aller Leihverträge
+      @WebMethod
+    @WebResult(name = "liehvertrag")
+    public List<Leihvertrag> findAllLeihverträge() {
+        return leihvertragbean.findAll();
+    }
     
     
 }
